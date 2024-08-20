@@ -26,7 +26,8 @@ export default function WebinarModal({
   handleInput,
   inputData,
   handleCreateWebinar,
-  isEdit,
+  handleModalEdit,
+  editId,
 }) {
   return (
     <Modal
@@ -195,15 +196,27 @@ export default function WebinarModal({
         </Box>
         {/* Modal Footer */}
         <Box component="div" sx={{ borderTop: "1px solid gray", pt: 2, mt: 2 }}>
-          <Button
-            size="small"
-            color="primary"
-            variant="contained"
-            sx={{ textTransform: "inherit" }}
-            onClick={handleCreateWebinar}
-          >
-            {isEdit ? "Edit Webinar" : "Create Webinar"}
-          </Button>
+          {editId ? (
+            <Button
+              size="small"
+              color="primary"
+              variant="contained"
+              sx={{ textTransform: "inherit" }}
+              onClick={() => handleModalEdit(inputData)}
+            >
+              Edit Webinar
+            </Button>
+          ) : (
+            <Button
+              size="small"
+              color="primary"
+              variant="contained"
+              sx={{ textTransform: "inherit" }}
+              onClick={handleCreateWebinar}
+            >
+              Create Webinar
+            </Button>
+          )}
           <Button
             size="small"
             color="primary"

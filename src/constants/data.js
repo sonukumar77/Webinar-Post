@@ -20,3 +20,5 @@ export const COLORS = [
   "#3B83BD",
   "#252850",
 ];
+
+export const RANDOM_AVATAR_URL = "https://picsum.photos/300/500";

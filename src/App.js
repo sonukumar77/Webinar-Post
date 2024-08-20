@@ -2,7 +2,7 @@ import { Box, Stack } from "@mui/material";
 import TopNav from "./components/Navbar/TopNav";
 import WebinarCard from "./components/Card/WebinarCard";
 import WebinarModal from "./components/Modal/WebinarModal";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { COLORS, INITIAL_INPUTDATA } from "./constants/data";
 import { generateRandomColor } from "./utils/common";
@@ -10,15 +10,16 @@ import { generateRandomColor } from "./utils/common";
 function App() {
   const [inputData, setInputData] = useState(INITIAL_INPUTDATA);
   const [webinarData, setWebinarData] = useState([]);
-  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState(null);
   const [topicList, setTopicList] = useState([]);
   const [filterData, setFilterData] = useState([]);
   const [open, setOpen] = useState(false);
+  const [searchKey, setSearchKey] = useState("");
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    setIsEdit(false);
+    setEditId(null);
   };
 
   // Input Field Handler
@@ -33,6 +34,7 @@ function App() {
       [name]: value,
     }));
   };
+
   // Navbar Create Button Webinar handler
   const handleCreateWebinar = () => {
     const updatedWebinarData = [...webinarData, inputData];
@@ -47,10 +49,20 @@ function App() {
     setInputData(INITIAL_INPUTDATA);
   };
 
-  // Edit Modal data handler
+  // Modal Edit Button handler
+  const handleModalEdit = () => {
+    const updatedWebinarData = webinarData.map((element) =>
+      element.id === editId ? inputData : element
+    );
+    setWebinarData(updatedWebinarData);
+    setFilterData(updatedWebinarData);
+    handleClose();
+  };
+
+  // Card Edit Button data handler
   const handleEditWebinar = (id) => {
     setOpen(true);
-    setIsEdit(true);
+    setEditId(id);
     const findWebinarData = webinarData.find((element) => element.id === id);
     setInputData(findWebinarData);
   };
@@ -60,23 +72,46 @@ function App() {
     const filterData = webinarData.filter((element) => element.id !== id);
     setWebinarData(filterData);
     setFilterData(filterData);
-    setIsEdit(false);
+    setEditId(null);
   };
 
   // Select Input handler for filter
-  const handleSelectInput = (e) => {
-    const topicValue = e.target.value;
-    const filterTopicData = webinarData.filter(
-      (element) => element.topic === topicValue
-    );
+  const handleSelectInput = useCallback(
+    (e) => {
+      const topicValue = e.target.value;
+      const filterTopicData = webinarData.filter(
+        (element) => element.topic === topicValue
+      );
 
-    if (topicValue) {
-      setFilterData(filterTopicData);
-      return;
-    } else {
-      setFilterData(webinarData);
-    }
-  };
+      if (topicValue) {
+        setFilterData(filterTopicData);
+        return;
+      } else {
+        setFilterData(webinarData);
+      }
+    },
+    [webinarData]
+  );
+
+  // Search Input handler
+  const handleSearch = useCallback(
+    (e) => {
+      const { value } = e.target;
+      setSearchKey(value);
+
+      if (e.key === "Enter") {
+        const searchData = webinarData.filter((element) => {
+          return Object.values(element).some((propValue) =>
+            propValue?.toString().toLowerCase().includes(value.toLowerCase())
+          );
+        });
+
+        setFilterData(searchData);
+        setSearchKey("");
+      }
+    },
+    [webinarData]
+  );
 
   useEffect(() => {
     const uniqueTopics = [
@@ -92,6 +127,8 @@ function App() {
         handleAddWebinar={handleAddWebinar}
         handleSelectInput={handleSelectInput}
         topicList={topicList}
+        handleSearch={handleSearch}
+        searchKey={searchKey}
       />
       <Stack
         direction={{ xs: "column", sm: "row" }}
@@ -120,7 +157,8 @@ function App() {
         handleInput={handleInput}
         inputData={inputData}
         handleCreateWebinar={handleCreateWebinar}
-        isEdit={isEdit}
+        handleModalEdit={handleModalEdit}
+        editId={editId}
       />
     </Box>
   );

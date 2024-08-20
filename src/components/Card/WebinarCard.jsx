@@ -9,6 +9,7 @@ import {
   CardActions,
 } from "@mui/material";
 import { formatDate } from "../../utils/common";
+import { RANDOM_AVATAR_URL } from "../../constants/data";
 
 export default function WebinarCard({
   id,
@@ -48,7 +49,7 @@ export default function WebinarCard({
           <Avatar
             sx={{ bgcolor: "green[500]", width: 56, height: 56 }}
             variant="rounded"
-            src="https://picsum.photos/300/500"
+            src={RANDOM_AVATAR_URL}
             alt="card-image"
           ></Avatar>
         </Box>
