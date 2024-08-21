@@ -58,15 +58,15 @@ Visit the hosted application: [Webinar Post Manager](https://webinar-post.vercel
 
 ## Screenshots
 
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/modal.png)
+![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/list.png)
 
 ---
 
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/lists.png)
+![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/create.png)
 
 ---
 
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/filter.png)
+![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/error.png)
 
 ## Project Structure
 
