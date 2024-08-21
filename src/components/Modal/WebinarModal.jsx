@@ -10,7 +10,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 800,
-  height: 700,
+  height: 760,
   bgcolor: "background.paper",
   borderRadius: 2,
   boxShadow: 24,
@@ -28,6 +28,7 @@ export default function WebinarModal({
   handleCreateWebinar,
   handleModalEdit,
   editId,
+  errors,
 }) {
   return (
     <Modal
@@ -59,6 +60,7 @@ export default function WebinarModal({
           </span>
         </Box>
         {/* Modal Body */}
+
         <Box component="div">
           <Typography gutterBottom variant="h6" component="div">
             Instructor Details
@@ -92,6 +94,8 @@ export default function WebinarModal({
                   name="instructorName"
                   value={inputData.instructorName}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.instructorName}
+                  helperText={errors.instructorName}
                 />
               </Box>
               <Box component="div">
@@ -105,6 +109,8 @@ export default function WebinarModal({
                   name="instructorRole"
                   value={inputData.instructorRole}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.instructorRole}
+                  helperText={errors.instructorRole}
                 />
               </Box>
               <Box component="div">
@@ -118,6 +124,8 @@ export default function WebinarModal({
                   name="instructorCompany"
                   value={inputData.instructorCompany}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.instructorCompany}
+                  helperText={errors.instructorCompany}
                 />
               </Box>
             </Box>
@@ -134,6 +142,8 @@ export default function WebinarModal({
                   name="topic"
                   value={inputData.topic}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.topic}
+                  helperText={errors.topic}
                 />
               </Box>
             </Box>
@@ -154,6 +164,8 @@ export default function WebinarModal({
                 name="webinarTitle"
                 value={inputData.webinarTitle}
                 onChange={(e) => handleInput(e)}
+                error={!!errors.webinarTitle}
+                helperText={errors.webinarTitle}
               />
             </Box>
             <Box sx={{ display: "flex", gap: 2 }}>
@@ -167,6 +179,8 @@ export default function WebinarModal({
                   name="webinarStartDate"
                   value={inputData.webinarStartDate}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.webinarStartDate}
+                  helperText={errors.webinarStartDate}
                 />
               </Box>
               <Box component="div" sx={{ width: "100%" }}>
@@ -178,6 +192,8 @@ export default function WebinarModal({
                   name="webinarStartTime"
                   value={inputData.webinarStartTime}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.webinarStartTime}
+                  helperText={errors.webinarStartTime}
                 />
               </Box>
               <Box component="div" sx={{ width: "100%" }}>
@@ -189,42 +205,48 @@ export default function WebinarModal({
                   name="webinarEndTime"
                   value={inputData.webinarEndTime}
                   onChange={(e) => handleInput(e)}
+                  error={!!errors.webinarEndTime}
+                  helperText={errors.webinarEndTime}
                 />
               </Box>
             </Box>
           </Box>
-        </Box>
-        {/* Modal Footer */}
-        <Box component="div" sx={{ borderTop: "1px solid gray", pt: 2, mt: 2 }}>
-          {editId ? (
-            <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              sx={{ textTransform: "inherit" }}
-              onClick={() => handleModalEdit(inputData)}
-            >
-              Edit Webinar
-            </Button>
-          ) : (
-            <Button
-              size="small"
-              color="primary"
-              variant="contained"
-              sx={{ textTransform: "inherit" }}
-              onClick={handleCreateWebinar}
-            >
-              Create Webinar
-            </Button>
-          )}
-          <Button
-            size="small"
-            color="primary"
-            sx={{ textTransform: "inherit" }}
-            onClick={handleClose}
+
+          {/* Modal Footer */}
+          <Box
+            component="div"
+            sx={{ borderTop: "1px solid gray", pt: 2, mt: 2 }}
           >
-            Cancel
-          </Button>
+            {editId ? (
+              <Button
+                size="small"
+                color="primary"
+                variant="contained"
+                sx={{ textTransform: "inherit" }}
+                onClick={() => handleModalEdit(inputData)}
+              >
+                Edit Webinar
+              </Button>
+            ) : (
+              <Button
+                size="small"
+                color="primary"
+                variant="contained"
+                sx={{ textTransform: "inherit" }}
+                onClick={handleCreateWebinar}
+              >
+                Create Webinar
+              </Button>
+            )}
+            <Button
+              size="small"
+              color="primary"
+              sx={{ textTransform: "inherit" }}
+              onClick={handleClose}
+            >
+              Cancel
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Modal>
