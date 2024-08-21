@@ -5,7 +5,7 @@ import WebinarModal from "./components/Modal/WebinarModal";
 import { useCallback, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { COLORS, INITIAL_INPUTDATA } from "./constants/data";
-import { generateRandomColor } from "./utils/common";
+import { debounce, generateRandomColor } from "./utils/common";
 
 function App() {
   const [inputData, setInputData] = useState(INITIAL_INPUTDATA);
@@ -116,24 +116,26 @@ function App() {
     [webinarData]
   );
 
-  // Search Input handler
+  const onSearchChange = useCallback(
+    debounce((value) => {
+      const searchData = webinarData.filter((element) => {
+        return Object.values(element).some((propValue) =>
+          propValue?.toString().toLowerCase().includes(value.toLowerCase())
+        );
+      });
+
+      setFilterData(searchData);
+    }, 150),
+    [webinarData]
+  );
+
   const handleSearch = useCallback(
     (e) => {
       const { value } = e.target;
       setSearchKey(value);
-
-      if (e.key === "Enter") {
-        const searchData = webinarData.filter((element) => {
-          return Object.values(element).some((propValue) =>
-            propValue?.toString().toLowerCase().includes(value.toLowerCase())
-          );
-        });
-
-        setFilterData(searchData);
-        setSearchKey("");
-      }
+      onSearchChange(value);
     },
-    [webinarData]
+    [onSearchChange]
   );
 
   useEffect(() => {

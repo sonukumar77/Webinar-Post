@@ -6,19 +6,20 @@ import SearchIcon from "@mui/icons-material/Search";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.black, 0.15),
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.black, 0.25),
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
+  marginRight: theme.spacing(2),
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(3),
     width: "auto",
   },
 }));
 
-export const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
   position: "absolute",
@@ -28,18 +29,15 @@ export const SearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
-  width: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "40ch",
     },
   },
 }));
@@ -50,14 +48,17 @@ const SearchBox = ({ handleSearch, searchKey }) => {
       sx={{
         backgroundColor: "white",
         border: "1px solid #E6EAED",
+        padding: 0.8,
+        display: "flex",
+        alignItems: "center",
+        borderRadius: "15px",
       }}
     >
       <SearchIconWrapper>
         <SearchIcon sx={{ color: "gray" }} />
       </SearchIconWrapper>
       <StyledInputBase
-        placeholder="Search…"
-        // inputProps={{ "aria-label": "search" }}
+        placeholder="Search for webinar"
         onChange={handleSearch}
         onKeyDown={handleSearch}
         value={searchKey}

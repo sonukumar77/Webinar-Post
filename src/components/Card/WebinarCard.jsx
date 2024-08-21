@@ -32,7 +32,9 @@ export default function WebinarCard({
         width: "33%",
         padding: 2,
         margin: "auto",
-        borderRadius: "10px",
+        borderRadius: "15px",
+        border: "1px solid #E3E7EB",
+        boxShadow: "none",
       }}
     >
       <CardActionArea>
@@ -97,6 +99,11 @@ export default function WebinarCard({
             backgroundColor: "#F9E8E8",
             color: "#D14040",
             fontWeight: "bold",
+            boxShadow: "none",
+            ":hover": {
+              backgroundColor: "#F9E8E8",
+              boxShadow: "none",
+            },
           }}
           onClick={() => handleDeleteWebinar(id)}
         >

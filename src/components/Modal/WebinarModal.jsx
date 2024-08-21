@@ -17,7 +17,7 @@ const style = {
   bgcolor: "background.paper",
   borderRadius: 4,
   boxShadow: 24,
-  p: 4,
+  p: 8,
   display: "flex",
   flexDirection: "column",
   gap: 2,
@@ -40,7 +40,7 @@ export default function WebinarModal({
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       sx={{
-        backdropFilter: "blur(8px)",
+        backdropFilter: "blur(6px)",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
       }}
     >
@@ -52,7 +52,7 @@ export default function WebinarModal({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            borderBottom: "1px solid gray",
+            borderBottom: "1px solid #E3E7EB",
             pb: 1,
           }}
         >
@@ -66,7 +66,13 @@ export default function WebinarModal({
         </Box>
         {/* Modal Body */}
         <Box
-          sx={{ display: "flex", alignItems: "center", gap: 3, marginTop: 2 }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 3,
+            marginTop: 2,
+            marginLeft: -6,
+          }}
         >
           <GroupIcon
             sx={{ stroke: "black", color: "white", strokeWidth: 1.5 }}
@@ -157,7 +163,13 @@ export default function WebinarModal({
           </Box>
 
           <Box
-            sx={{ display: "flex", alignItems: "center", gap: 3, marginTop: 2 }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 3,
+              marginTop: 2,
+              marginLeft: -6,
+            }}
           >
             <VideocamIcon
               sx={{ stroke: "black", color: "white", strokeWidth: 1.5 }}
@@ -181,7 +193,7 @@ export default function WebinarModal({
                 error={!!errors.webinarTitle}
               />
             </Box>
-            <Box sx={{ display: "flex", gap: 2 }}>
+            <Box sx={{ display: "flex" }}>
               <Box component="div" sx={{ width: "100%" }}>
                 <InputLabel sx={{ color: "black" }} required>
                   Start Date
@@ -225,7 +237,7 @@ export default function WebinarModal({
           {/* Modal Footer */}
           <Box
             component="div"
-            sx={{ borderTop: "1px solid gray", pt: 2, mt: 2 }}
+            sx={{ borderTop: "1px solid #E3E7EB", pt: 2, mt: 2 }}
           >
             {editId ? (
               <Button

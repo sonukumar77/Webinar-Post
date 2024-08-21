@@ -28,3 +28,11 @@ export const generateRandomColor = (max, min = 0) => {
   const randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
   return COLORS[randomValue];
 };
+
+export const debounce = (cb, delay) => {
+  let timerId = null;
+  return function (...args) {
+    if (timerId) clearTimeout(timerId);
+    timerId = setTimeout(() => cb(...args), delay);
+  };
+};

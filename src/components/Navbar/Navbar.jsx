@@ -7,7 +7,12 @@ export default function Navbar({ children }) {
     <Box sx={{ flexGrow: 1, backgroundColor: "white" }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "white", color: "black" }}
+        sx={{
+          backgroundColor: "white",
+          color: "black",
+          boxShadow: "none",
+          borderBottom: "1px solid #E3E7EB",
+        }}
       >
         <Toolbar>{children}</Toolbar>
       </AppBar>

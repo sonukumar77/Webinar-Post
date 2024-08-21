@@ -1,31 +1,42 @@
 import React from "react";
-import InputLabel from "@mui/material/InputLabel";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Box } from "@mui/material";
 
 const SelectInput = ({ handleSelectInput, topicList }) => {
+  const [topicName] = React.useState([]);
+
   return (
     <Box>
-      <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-filled-label">Topic</InputLabel>
+      <FormControl sx={{ width: 300 }}>
         <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value="val1"
+          displayEmpty
+          value={topicName}
           onChange={handleSelectInput}
+          input={<OutlinedInput />}
+          renderValue={(selected) => {
+            if (selected.length === 0) {
+              return <span>Topic</span>;
+            }
+
+            return selected.join(", ");
+          }}
+          style={{
+            borderRadius: "15px",
+          }}
         >
-          <MenuItem value="" selected>
-            <em>All</em>
-          </MenuItem>
-          {topicList.length > 0
-            ? topicList.map((item, i) => (
-                <MenuItem value={item} key={i}>
-                  {item}
-                </MenuItem>
-              ))
-            : null}
+          {topicList.length > 0 && (
+            <MenuItem selected value="">
+              <em>All</em>
+            </MenuItem>
+          )}
+          {topicList.map((name) => (
+            <MenuItem key={name} value={name}>
+              {name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
