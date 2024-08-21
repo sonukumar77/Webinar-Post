@@ -9,6 +9,7 @@ import { generateRandomColor } from "./utils/common";
 
 function App() {
   const [inputData, setInputData] = useState(INITIAL_INPUTDATA);
+  const [errors, setErrors] = useState({});
   const [webinarData, setWebinarData] = useState([]);
   const [editId, setEditId] = useState(null);
   const [topicList, setTopicList] = useState([]);
@@ -27,16 +28,35 @@ function App() {
     const { value, name } = e.target;
     const id = uuidv4();
     const randomColor = generateRandomColor(COLORS.length);
+
     setInputData((prev) => ({
       ...prev,
       id,
       color: randomColor,
       [name]: value,
     }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: value ? "" : `${name.replace(/([A-Z])/g, " $1")} is required`,
+    }));
   };
 
   // Navbar Create Button Webinar handler
   const handleCreateWebinar = () => {
+    const newErrors = {};
+
+    Object.keys(INITIAL_INPUTDATA).forEach((key) => {
+      if (!inputData[key]) {
+        newErrors[key] = `${key.replace(/([A-Z])/g, " $1")} is required`;
+      }
+    });
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
     const updatedWebinarData = [...webinarData, inputData];
     setWebinarData(updatedWebinarData);
     setFilterData(updatedWebinarData);
@@ -159,6 +179,7 @@ function App() {
         handleCreateWebinar={handleCreateWebinar}
         handleModalEdit={handleModalEdit}
         editId={editId}
+        errors={errors}
       />
     </Box>
   );
