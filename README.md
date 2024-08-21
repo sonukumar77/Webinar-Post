@@ -68,6 +68,10 @@ Visit the hosted application: [Webinar Post Manager](https://webinar-post.vercel
 
 ![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/error.png)
 
+---
+
+![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/edit.png)
+
 ## Project Structure
 
 - `/src`: Contains the source code for the React application.
