@@ -27,7 +27,10 @@ function App() {
   const handleInput = (e) => {
     const { value, name } = e.target;
     const id = uuidv4();
-    const randomColor = generateRandomColor(COLORS.length);
+    const randomColor =
+      webinarData.length <= 6
+        ? COLORS[webinarData.length]
+        : generateRandomColor(webinarData.length);
 
     setInputData((prev) => ({
       ...prev,
@@ -165,6 +168,7 @@ function App() {
                 {...item}
                 handleDeleteWebinar={handleDeleteWebinar}
                 handleEditWebinar={handleEditWebinar}
+                chooseCardBgColor
               />
             ))
           : null}

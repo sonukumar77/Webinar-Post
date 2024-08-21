@@ -3,6 +3,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { InputLabel, TextField } from "@mui/material";
+import GroupIcon from "@mui/icons-material/Group";
+import VideocamIcon from "@mui/icons-material/Videocam";
+import CloseIcon from "@mui/icons-material/Close";
 
 const style = {
   position: "absolute",
@@ -10,9 +13,9 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 800,
-  height: 760,
+  height: 700,
   bgcolor: "background.paper",
-  borderRadius: 2,
+  borderRadius: 4,
   boxShadow: 24,
   p: 4,
   display: "flex",
@@ -36,6 +39,10 @@ export default function WebinarModal({
       onClose={handleClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
+      sx={{
+        backdropFilter: "blur(8px)",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+      }}
     >
       <Box sx={style}>
         {/* Modal Header */}
@@ -52,19 +59,23 @@ export default function WebinarModal({
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Create Webinar
           </Typography>
-          <span
-            style={{ cursor: "pointer", fontSize: 24 }}
+          <CloseIcon
+            sx={{ cursor: "pointer", fontSize: 24 }}
             onClick={handleClose}
-          >
-            X
-          </span>
+          />
         </Box>
         {/* Modal Body */}
-
-        <Box component="div">
-          <Typography gutterBottom variant="h6" component="div">
+        <Box
+          sx={{ display: "flex", alignItems: "center", gap: 3, marginTop: 2 }}
+        >
+          <GroupIcon
+            sx={{ stroke: "black", color: "white", strokeWidth: 1.5 }}
+          />
+          <Typography gutterBottom variant="h6" component="div" sx={{ m: 0 }}>
             Instructor Details
           </Typography>
+        </Box>
+        <Box component="div">
           <Box
             component="div"
             sx={{
@@ -95,7 +106,6 @@ export default function WebinarModal({
                   value={inputData.instructorName}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.instructorName}
-                  helperText={errors.instructorName}
                 />
               </Box>
               <Box component="div">
@@ -110,7 +120,6 @@ export default function WebinarModal({
                   value={inputData.instructorRole}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.instructorRole}
-                  helperText={errors.instructorRole}
                 />
               </Box>
               <Box component="div">
@@ -125,7 +134,6 @@ export default function WebinarModal({
                   value={inputData.instructorCompany}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.instructorCompany}
-                  helperText={errors.instructorCompany}
                 />
               </Box>
             </Box>
@@ -143,16 +151,22 @@ export default function WebinarModal({
                   value={inputData.topic}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.topic}
-                  helperText={errors.topic}
                 />
               </Box>
             </Box>
           </Box>
 
-          <Box sx={{ marginTop: 3 }}>
-            <Typography gutterBottom variant="h6" component="div">
+          <Box
+            sx={{ display: "flex", alignItems: "center", gap: 3, marginTop: 2 }}
+          >
+            <VideocamIcon
+              sx={{ stroke: "black", color: "white", strokeWidth: 1.5 }}
+            />
+            <Typography gutterBottom variant="h6" component="div" sx={{ m: 0 }}>
               Webinar Details
             </Typography>
+          </Box>
+          <Box sx={{ marginTop: 3 }}>
             <Box component="div" sx={{ mb: 2 }}>
               <InputLabel sx={{ color: "black" }} required>
                 Webinar Title
@@ -165,7 +179,6 @@ export default function WebinarModal({
                 value={inputData.webinarTitle}
                 onChange={(e) => handleInput(e)}
                 error={!!errors.webinarTitle}
-                helperText={errors.webinarTitle}
               />
             </Box>
             <Box sx={{ display: "flex", gap: 2 }}>
@@ -180,7 +193,6 @@ export default function WebinarModal({
                   value={inputData.webinarStartDate}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.webinarStartDate}
-                  helperText={errors.webinarStartDate}
                 />
               </Box>
               <Box component="div" sx={{ width: "100%" }}>
@@ -193,7 +205,6 @@ export default function WebinarModal({
                   value={inputData.webinarStartTime}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.webinarStartTime}
-                  helperText={errors.webinarStartTime}
                 />
               </Box>
               <Box component="div" sx={{ width: "100%" }}>
@@ -206,7 +217,6 @@ export default function WebinarModal({
                   value={inputData.webinarEndTime}
                   onChange={(e) => handleInput(e)}
                   error={!!errors.webinarEndTime}
-                  helperText={errors.webinarEndTime}
                 />
               </Box>
             </Box>
@@ -222,7 +232,11 @@ export default function WebinarModal({
                 size="small"
                 color="primary"
                 variant="contained"
-                sx={{ textTransform: "inherit" }}
+                sx={{
+                  backgroundColor: "#0D51F1",
+                  borderRadius: "10px",
+                  textTransform: "initial",
+                }}
                 onClick={() => handleModalEdit(inputData)}
               >
                 Edit Webinar
@@ -232,7 +246,12 @@ export default function WebinarModal({
                 size="small"
                 color="primary"
                 variant="contained"
-                sx={{ textTransform: "inherit" }}
+                sx={{
+                  backgroundColor: "#0D51F1",
+                  borderRadius: "10px",
+                  textTransform: "initial",
+                  padding: "0.5rem 1.5rem",
+                }}
                 onClick={handleCreateWebinar}
               >
                 Create Webinar
@@ -241,7 +260,12 @@ export default function WebinarModal({
             <Button
               size="small"
               color="primary"
-              sx={{ textTransform: "inherit" }}
+              sx={{
+                borderRadius: "30px",
+                textTransform: "inherit",
+                color: "#0D51F1",
+                fontWeight: "bold",
+              }}
               onClick={handleClose}
             >
               Cancel

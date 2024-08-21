@@ -13,13 +13,32 @@ export default function TopNav({
   searchKey,
 }) {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "white" }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        backgroundColor: "white",
+      }}
+    >
       <Navbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{ flexGrow: 1, fontWeight: "bold" }}
+        >
           Webinar
         </Typography>
-        <Button variant="contained" onClick={handleAddWebinar}>
-          Add Webinar
+        <Button
+          variant="contained"
+          size="small"
+          onClick={handleAddWebinar}
+          sx={{
+            backgroundColor: "#0D51F1",
+            borderRadius: "10px",
+            textTransform: "initial",
+            padding: "0.5rem 1.5rem",
+          }}
+        >
+          Add webinar
         </Button>
       </Navbar>
 

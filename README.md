@@ -1,74 +1,70 @@
-# Webinar Post Manager
+# Getting Started with Create React App
 
-Welcome to the Webinar Post Manager App! This React application allows users to create and manage Webinar Posts.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Table of Contents
+## Available Scripts
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Hosted Link](#hosted-link)
-- [Screenshots](#screenshots)
-- [Project Structure](#project-structure)
-- [Dependencies](#dependencies)
+In the project directory, you can run:
 
-## Features
+### `npm start`
 
-- Explore Webinar Post Manager App 
-- Delete,Update,Filter and Search Webinar Posts.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Installation
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1. Clone the repository:
+### `npm test`
 
-   ```bash
-   git clone https://github.com/sonukumar77/Webinar-Post.git
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-2. Navigate to the project folder:
+### `npm run build`
 
-   ```bash
-   cd Webinar-Post
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-3. Install dependencies:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-   ```bash
-   npm install
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Usage
+### `npm run eject`
 
-1. Start the development server::
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-   ```bash
-   npm run start
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. Open your browser and visit http://localhost:3000.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-3. Explore the Webinar Post Manager App!
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Hosted Link
+## Learn More
 
-Visit the hosted application: [Webinar Post Manager](https://webinar-post.vercel.app/)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Screenshots
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/modal.png)
+### Code Splitting
 
----
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/lists.png)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
----
-![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/filter.png)
+### Analyzing the Bundle Size
 
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Project Structure
+### Making a Progressive Web App
 
-* `/src`: Contains the source code for the React application.
-* `/components`: React components.
-* `/constants`:Constants variable which uses thoughout the Application.
-* `/utils`: Utility functions.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Dependencies
+### Advanced Configuration
 
-- React Js
-- Uuid
-- Material UI
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

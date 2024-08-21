@@ -16,7 +16,7 @@ const SelectInput = ({ handleSelectInput, topicList }) => {
           value="val1"
           onChange={handleSelectInput}
         >
-          <MenuItem value="">
+          <MenuItem value="" selected>
             <em>All</em>
           </MenuItem>
           {topicList.length > 0

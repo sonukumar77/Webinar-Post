@@ -26,7 +26,15 @@ export default function WebinarCard({
   handleEditWebinar,
 }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card
+      sx={{
+        maxWidth: 400,
+        width: "33%",
+        padding: 2,
+        margin: "auto",
+        borderRadius: "10px",
+      }}
+    >
       <CardActionArea>
         <Box
           component="section"
@@ -37,28 +45,39 @@ export default function WebinarCard({
             alignItems: "center",
             backgroundColor: color ? color : "purple",
             color: "white",
+            borderRadius: "10px",
           }}
         >
           <Box component="div">
-            <Typography gutterBottom variant="h6" component="div">
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              sx={{ margin: 0 }}
+            >
               {instructorName}
             </Typography>
             <Typography variant="subtitle1">{instructorRole}</Typography>
-            <Typography variant="body2">{instructorCompany}</Typography>
+            <Typography variant="subtitle1">{instructorCompany}</Typography>
           </Box>
           <Avatar
             sx={{ bgcolor: "green[500]", width: 56, height: 56 }}
             variant="rounded"
             src={RANDOM_AVATAR_URL}
             alt="card-image"
-          ></Avatar>
+          />
         </Box>
 
-        <CardContent>
+        <CardContent sx={{ p: 0, mt: 2 }}>
           <Typography variant="subtitle1" style={{ color }}>
             {topic}
           </Typography>
-          <Typography gutterBottom variant="h6" component="div">
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="div"
+            sx={{ margin: 0, fontWeight: "bold" }}
+          >
             {webinarTitle}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -68,20 +87,29 @@ export default function WebinarCard({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions sx={{ mt: 2 }}>
         <Button
           size="small"
-          color="error"
           variant="contained"
-          sx={{ borderRadius: "30px", textTransform: "inherit" }}
+          sx={{
+            borderRadius: "30px",
+            textTransform: "inherit",
+            backgroundColor: "#F9E8E8",
+            color: "#D14040",
+            fontWeight: "bold",
+          }}
           onClick={() => handleDeleteWebinar(id)}
         >
           Delete
         </Button>
         <Button
           size="small"
-          color="primary"
-          sx={{ borderRadius: "30px", textTransform: "inherit" }}
+          sx={{
+            borderRadius: "30px",
+            textTransform: "inherit",
+            color: "#0D51F1",
+            fontWeight: "bold",
+          }}
           onClick={() => handleEditWebinar(id)}
         >
           Edit

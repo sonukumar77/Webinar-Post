@@ -10,6 +10,12 @@ export const INITIAL_INPUTDATA = {
 };
 
 export const COLORS = [
+  "#731DE3",
+  "#E72074",
+  "#07A79E",
+  "#0D51F1",
+  "#FEB022",
+  "#0C8661",
   "#999950",
   "#B32428",
   "#8D948D",
