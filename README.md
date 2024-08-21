@@ -21,20 +21,23 @@
 
 1. Clone the repository:
 
-### `npm test`
-
-````bash
+   ```bash
    git clone https://github.com/sonukumar77/Webinar-Post.git
+
+   ```
 
 2. Navigate to the project folder:
 
    ```bash
    cd Webinar-Post
 
+   ```
+
 3. Install dependencies:
 
    ```bash
    npm install
+   ```
 
 ## Usage
 
@@ -42,6 +45,8 @@
 
    ```bash
    npm run start
+
+   ```
 
 2. Open your browser and visit http://localhost:3000.
 
@@ -56,25 +61,23 @@ Visit the hosted application: [Webinar Post Manager](https://webinar-post.vercel
 ![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/modal.png)
 
 ---
+
 ![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/lists.png)
 
 ---
+
 ![image](https://github.com/sonukumar77/Webinar-Post/blob/main/src/assets/screenshots/filter.png)
-
-
 
 ## Project Structure
 
-* `/src`: Contains the source code for the React application.
-* `/components`: React components.
-* `/constants`: Constants variable which uses thoughout the Application.
-* `/utils`: Utility functions.
-* `/assets` : For images,fonts etc.
+- `/src`: Contains the source code for the React application.
+- `/components`: React components.
+- `/constants`: Constants variable which uses thoughout the Application.
+- `/utils`: Utility functions.
+- `/assets` : For images,fonts etc.
 
 ## Dependencies
 
 - React Js
 - Uuid
 - Material UI
-
-````
